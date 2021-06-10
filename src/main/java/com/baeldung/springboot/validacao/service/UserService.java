@@ -2,6 +2,7 @@ package com.baeldung.springboot.validacao.service;
 
 import com.baeldung.springboot.validacao.domain.User;
 import com.baeldung.springboot.validacao.repository.UserRepository;
+import com.baeldung.springboot.validacao.requests.UserPostRequestBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,8 +21,8 @@ public class UserService {
         return (List<User>) userRepository.findAll();
     }
 
-    public User save(User user){
-        return userRepository.save(user);
+    public User save(UserPostRequestBody userPostRequestBody){
+        return userRepository.save(userPostRequestBody.build());
     }
 
 }

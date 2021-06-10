@@ -1,6 +1,7 @@
 package com.baeldung.springboot.validacao.controller;
 
 import com.baeldung.springboot.validacao.domain.User;
+import com.baeldung.springboot.validacao.requests.UserPostRequestBody;
 import com.baeldung.springboot.validacao.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,8 +30,8 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    ResponseEntity<String> addUser(@Valid @RequestBody User user) {
-        userService.save(user);
+    ResponseEntity<String> addUser(@Valid @RequestBody UserPostRequestBody userPostRequestBody) {
+        userService.save(userPostRequestBody);
         return ResponseEntity.ok("User is valid");
     }
 
